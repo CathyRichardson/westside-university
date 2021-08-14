@@ -11,8 +11,8 @@ export default class ClassList extends Component {
   }
   componentDidMount() {
     axios.get(`http://localhost:3005/students?class=${this.props.match.params.class}`)
-    .then(({ data }) => this.setState({ students:data }))
-    .catch(err => console.log(err));
+      .then(({ data }) => this.setState({ students: data }))
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -20,7 +20,7 @@ export default class ClassList extends Component {
     let displayClass = students.map(student => {
       return <Link key={student.id} to={`/student/${student.id}`}>
         <h3>{`${student.first_name} ${student.last_name}`}</h3>
-        </Link>
+      </Link>
     });
     return (
       <div className="box">
